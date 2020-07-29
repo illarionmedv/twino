@@ -1,0 +1,13 @@
+<div class="modal">
+    <div class="modal_body">
+        <div class="modal_title">
+            Upload your files
+        </div>
+        <div class="dropzone">
+            <input type="file" #fileDropRef id="fileDropRef" multiple (change)="fileBrowserHandler($event.target.file)">
+            <img src="" alt="">
+            <h3>Drop your files here</h3>
+            <label for="fileDropRef">or choose from your computer</label>
+        </div>
+    </div>
+</div>

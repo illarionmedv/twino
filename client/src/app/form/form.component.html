@@ -1,0 +1,45 @@
+<div class="form_container">
+    <div class="form_content">
+        <label for="">Email address</label>
+        <input type="text" placeholder="Your email" class="form-input">
+
+        <h3>Choose the price</h3>
+
+<div class="sub_offer_container">
+
+        <div class="subscription_offer">
+            <div class="subscription_circle"></div>
+            <div class="sub_euro_sign">
+                €
+            </div>
+            <div class="sub_price">
+                120
+            </div>
+            <div class="sub_descr">
+                monthly
+            </div>
+        </div>
+
+        <div class="subscription_offer">
+            <div class="subscription_circle"></div>
+            <div class="sub_euro_sign">
+                €
+            </div>
+            <div class="sub_price">
+                120
+            </div>
+            <div class="sub_descr">
+                monthly
+            </div>
+        </div>
+
+    </div>
+
+    <button class="form-btn" (click)="onPress()">Send</button>
+
+    </div>
+</div>
+
+<div class="modal-background" *ngIf="display" (click)="onPress()">
+    <app-modal></app-modal>
+</div> 
