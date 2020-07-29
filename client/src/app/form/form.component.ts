@@ -1,4 +1,7 @@
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { EventEmitterService } from '../event-emitter.service';
+
 
 @Component({
   selector: 'app-form',
@@ -8,10 +11,29 @@ import { Component, OnInit } from '@angular/core';
 export class FormComponent implements OnInit {
   display = false;
   hiddenOverflow = false;
+  id: any;
+  planIsChosed = false;
+  userEmails = new FormGroup({
+    primaryEmail: new FormControl('', [
+      Validators.required,
+      Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$')]),
+  });
 
-  constructor() { }
+  constructor(
+    private eventEmitterService: EventEmitterService
+  ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    if (this.eventEmitterService.subsVar === undefined) {
+      this.eventEmitterService.subsVar = this.eventEmitterService.
+      invokeFirstComponentFunction.subscribe((name: string) => {
+        this.onPress();
+      });
+    }
+  }
+
+  get primEmail(){
+    return this.userEmails.get('primaryEmail');
   }
 
   onPress() {
@@ -22,6 +44,15 @@ export class FormComponent implements OnInit {
     }else{
       document.body.classList.remove('modal-open');
     }
+  }
+
+  addClass(id: any) {
+    this.id = id;
+    this.planIsChosed = true;
+  }
+
+  onSubmit() {
+      this.onPress();
   }
 
 }

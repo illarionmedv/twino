@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&display=swap');
- 
  body{
      margin: 0;
      padding: 0;
@@ -45,6 +44,7 @@
      line-height: 19px;
      color: #000000;
      margin-left: 33px;
+     text-decoration: none;
 }
  .navbar_btn{
      border: 1px solid #FFFFFF;
@@ -53,6 +53,7 @@
      width: 100px;
      height: 47px;
      background-color: transparent;
+     cursor: pointer;
 }
  .navbar-menu{
      display: flex;
@@ -112,7 +113,7 @@
      font-weight: normal;
      font-size: 16px;
      line-height: 19px;
-     color: #808E95;
+     color: #212121;
      margin-top:8px;
      padding-left: 25px;
 }
@@ -128,7 +129,7 @@
      margin-bottom: 16px;
 }
  .subscription_offer{
-     background: #F4511E;
+     background: #F2F2F2 !important;
      border-radius: 4px;
      width: 130px;
      height: 100px;
@@ -136,11 +137,12 @@
      cursor: pointer;
      margin-left: 23px;
      margin-right: 23px;
+     color: #212121;
 }
  .subscription_circle{
      width: 10px;
      height: 10px;
-     background: #1A237E;
+     background: white;
      border-radius: 50%;
      position: absolute;
      left: 8px;
@@ -153,7 +155,6 @@
      font-size: 45px;
      line-height: 54px;
      align-items: center;
-     color: #FFFFFF;
      position: absolute;
      left: 45px;
      top:17px;
@@ -164,7 +165,6 @@
      font-weight: 600;
      font-size: 24px;
      line-height: 29px;
-     color: #FFFFFF;
      position: absolute;
      left: 20px;
      top:22px;
@@ -175,7 +175,6 @@
      font-weight: 600;
      font-size: 12px;
      line-height: 14px;
-     color: #FFFFFF;
      position: absolute;
      bottom: 21px;
      width:100%;
@@ -233,63 +232,224 @@
  .modal-open{
      overflow: hidden;
 }
-.modal_body{
-    width:400px;
+ .modal_body{
+     width:400px;
 }
-.modal_title{
-    font-family: Barlow;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 34px;
-    line-height: 41px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    color: #212121;
-    width: 100%;
-    display: block;
-    margin-bottom: 52px;
+ .modal_title{
+     font-family: Barlow;
+     font-style: normal;
+     font-weight: normal;
+     font-size: 34px;
+     line-height: 41px;
+     display: flex;
+     align-items: center;
+     text-align: center;
+     color: #212121;
+     width: 100%;
+     display: block;
+     margin-bottom: 52px;
 }
-
-.dropzone{
-    width: 358px;
-    height: 211px;
-    text-align: center;
-    position: relative;
-    margin: 0 auto;
-    border: 3px dashed #B0BEC5;
-    border-radius: 6px;
-
-    input {
-        opacity: 0;
-        position: absolute;
-        z-index: 2;
-        width: 100%;
-        height: 100%;
-        top:0;
-        left: 0;
+ .dropzone{
+     height: 211px;
+     text-align: center;
+     position: relative;
+     margin: 0 auto;
+     border: 3px dashed #B0BEC5;
+     border-radius: 6px;
+     input {
+         opacity: 0;
+         position: absolute;
+         z-index: 2;
+         width: 100%;
+         height: 100%;
+         top:0;
+         left: 0;
     }
-
-    h3{
-        font-family: Barlow;
-        font-style: normal;
-        font-weight: 600;
-        font-size: 20px;
-        line-height: 24px;
-        display: flex;
-        align-items: center;
-        text-align: center;
-        color: #808E95;
+     h3{
+         font-family: Barlow;
+         font-style: normal;
+         font-weight: 600;
+         font-size: 20px;
+         line-height: 24px;
+         display: block;
+         align-items: center;
+         text-align: center;
+         color: #808E95;
+         margin-top: 32px;
+         margin-bottom: 0px;
     }
-
-    label{
-        font-family: Barlow;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 16px;
-        line-height: 19px;
-        text-align: center;
-        color: #808E95;
+     label{
+         font-family: Barlow;
+         font-style: normal;
+         font-weight: normal;
+         font-size: 16px;
+         line-height: 19px;
+         text-align: center;
+         color: #808E95;
     }
-
+}
+ .dropdown_icon{
+     width: 52px;
+     height: 52px;
+     margin-top:45px;
+}
+ .files-list {
+     margin-top: 1.5rem;
+     .single-file {
+         padding: 0.5rem;
+         justify-content: space-between;
+         align-items: center;
+         margin-bottom: 1rem;
+         display: flex;
+         flex-grow: 1;
+         border: 3px dashed #B0BEC5;
+         border-radius: 6px;
+         .delete {
+             display: flex;
+             margin-left: 0.7rem;
+             cursor: pointer;
+             align-self: flex-end;
+        }
+         display: flex;
+         flex-grow: 1;
+         .name {
+             font-family: Barlow;
+             font-style: normal;
+             font-weight: normal;
+             font-size: 14px;
+             color: #808E95;
+             margin:0px;
+             margin-bottom: 3px;
+        }
+         .size {
+             font-size: 12px;
+             font-weight: 500;
+             color: #a4a4a4;
+             margin: 0;
+             margin-bottom: 0.25rem;
+        }
+         .info {
+             width: 100%;
+             margin-left: 15px;
+        }
+    }
+}
+ .dropdown_label>span{
+     color: #F4511E;
+}
+ .close_btn{
+     font-family: Barlow;
+     font-style: normal;
+     font-weight: normal;
+     font-size: 18px;
+     line-height: 22px;
+     width: 100%;
+     display: block;
+     align-items: center;
+     text-align: center;
+     color: #F4511E;
+     margin-top: 47px;
+     cursor: pointer !important;
+}
+ .active_subscription_offer{
+     background: #F4511E !important;
+     color: #FFFFFF !important;
+}
+ .active_subscription_offer > .subscription_circle{
+     background: #1A237E !important;
+}
+ .is-invalid {
+     border: 1px solid red;
+}
+ .text-danger{
+     color:red;
+     font-family: Barlow;
+     font-style: normal;
+     font-weight: normal;
+}
+ button:disabled, button[disabled]{
+     background-color: #BFBFBF !important;
+}
+ .mobile-download-btn{
+     display: none;
+     width: 40px;
+     height: 40px;
+}
+ ::placeholder {
+     color: #808E95;
+}
+ //Tablets 
+ @media (min-width: 768px) and (max-width: 1024px) {
+     .banner_container{
+         display: grid;
+         text-align: center;
+    }
+     .banner_title{
+         font-size: 55px;
+    }
+}
+ //Smartphones 
+ @media only screen and (max-width: 600px) {
+     .modal_body {
+         width: 310px;
+    }
+     .mobile-download-btn{
+         display: block;
+    }
+     .banner_title{
+         font-family: Barlow;
+         font-style: normal;
+         font-weight: normal;
+         font-size: 36px;
+         line-height: 43px;
+         display: flex;
+         align-items: center;
+         text-align: center;
+         color: #212121;
+    }
+     .banner_container{
+         flex-direction: column;
+         height: auto;
+    }
+     .banner_container > img{
+         width: 260px;
+         height: 195px;
+         margin-top:21px;
+    }
+     .navbar_container{
+         padding-left: 47px;
+         padding-right: 47px;
+    }
+     .desktop-link{
+         display: none;
+    }
+     .navbar-link{
+         margin-left: 22px;
+    }
+     .form_content {
+         width: 280px;
+    }
+     .form_container{
+         padding-top: 80px;
+    }
+     h3{
+         margin-top: 37px;
+    }
+     .sub_offer_container{
+         display: inline-flex;
+    }
+     .subscription_offer{
+         margin-left: 0px;
+         margin-right: 0px;
+    }
+     .subscription_offer:nth-child(1){
+         margin-right: 20px;
+    }
+     .form-btn{
+         margin-top:37px;
+         width: 100%;
+    }
+     .form_container{
+         padding-bottom: 63px;
+    }
 }

@@ -1,45 +1,43 @@
 <div class="form_container">
-    <div class="form_content">
-        <label for="">Email address</label>
-        <input type="text" placeholder="Your email" class="form-input">
-
-        <h3>Choose the price</h3>
-
-<div class="sub_offer_container">
-
-        <div class="subscription_offer">
-            <div class="subscription_circle"></div>
-            <div class="sub_euro_sign">
+    <form [formGroup]="userEmails">
+       <div class="form_content">
+          <label for="">Email address</label>
+          <input type="email" placeholder="Your email" class="form-input" [class.is-invalid] = "userEmails.get('primaryEmail').invalid && userEmails.get('primaryEmail').touched" formControlName="primaryEmail">
+          <div *ngIf="(primEmail.invalid && primEmail.touched) || primEmail.dirty">
+             <small *ngIf="primEmail.errors?.required" class="text-danger">Your email is required</small>
+             <small *ngIf="primEmail.errors?.pattern" class="text-danger">Please provide a valid email address</small>
+          </div>
+          <h3>Choose the price</h3>
+          <div class="sub_offer_container">
+             <div class="subscription_offer" [ngClass]="{'active_subscription_offer': id === 1 }" (click)="addClass(id=1)">
+             <div class="subscription_circle"></div>
+             <div class="sub_euro_sign">
                 €
-            </div>
-            <div class="sub_price">
+             </div>
+             <div class="sub_price">
                 120
-            </div>
-            <div class="sub_descr">
+             </div>
+             <div class="sub_descr">
                 monthly
-            </div>
-        </div>
-
-        <div class="subscription_offer">
-            <div class="subscription_circle"></div>
-            <div class="sub_euro_sign">
-                €
-            </div>
-            <div class="sub_price">
-                120
-            </div>
-            <div class="sub_descr">
-                monthly
-            </div>
-        </div>
-
-    </div>
-
-    <button class="form-btn" (click)="onPress()">Send</button>
-
-    </div>
-</div>
-
-<div class="modal-background" *ngIf="display" (click)="onPress()">
+             </div>
+          </div>
+          <div class="subscription_offer" [ngClass]="{'active_subscription_offer': id === 2 }" (click)="addClass(id=2)">
+          <div class="subscription_circle"></div>
+          <div class="sub_euro_sign">
+             €
+          </div>
+          <div class="sub_price">
+             40
+          </div>
+          <div class="sub_descr">
+             weekly
+          </div>
+       </div>
+ </div>
+ <button class="form-btn" (click)="onSubmit()" [disabled]="!userEmails.valid || planIsChosed === false">Send</button>
+ </div>
+ </form>
+ </div>
+ <div class="modal-background" *ngIf="display">
     <app-modal></app-modal>
-</div> 
+ </div>
